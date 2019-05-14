@@ -14,7 +14,7 @@ class PersonummerValidityChecker:
             oddSum = sum(int(n) for n in data[offset + 1:dataLen - 1:2])
             evens = [2 * int(n) for n in data[offset:dataLen - 1:2]]
             for n in evens:
-                if n >= 10: # If True, take sum of seperate digits
+                if n >= 10: # If True, take sum of each digit
                     digits = str(n)
                     evenSum += int(digits[0]) + int(digits[1])
                 else: # If single digit

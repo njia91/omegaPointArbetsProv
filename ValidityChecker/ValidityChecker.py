@@ -3,9 +3,9 @@ class ValidityChecker:
     """ Configurable validity checker
 
     This class can be configured with multiple validity checkers
-    that can confirm the validitiy the data given to its function
-    checkvalidityOfData. When a validitychecker fails, it will log
-    which validityChecker that failed and the data it attempted to
+    that can confirm the validitiy of a given data set. 
+    When a validitychecker fails, it will log which validityChecker 
+    that failed and the data it attempted to
     validitate. 
 
     The validateData function will run the input data through all
@@ -23,11 +23,10 @@ class ValidityChecker:
 
         Args:
             logger: Object that implements a log() function
-            
+
             validityCheckers: (list) List of ValidityCheckers,
                 Each validityChecker must implement a validateData()
                 and __str__ function. See Class header.
-
         """
         self.validityCheckers = []
         if type(validityCheckers) == list:
@@ -42,8 +41,16 @@ class ValidityChecker:
     def removeValidityChecker(self, validiyChecker):
         self.validityCheckers = [x for x in self.validityCheckers if not isinstance(x,type(validiyChecker))]
 
-
     def checkValidityOfData(self, data):
+        """ checkValidityOfData
+        Validates the input data against all configured validateCheckers
+
+        Args:
+            data (str,int): Data to validate.
+
+        Returns:
+            boolean: True data is valid.
+        """
         allDataValid = True
         if self.validityCheckers is None or len(self.validityCheckers) is 0:
             raise ValueError("Please add a validityChecker before executing this function")

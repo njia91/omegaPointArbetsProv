@@ -3,10 +3,10 @@ import sys
 sys.path.append('../')
 import os
 
-from ValidityCheckers.PersonnummerValidityCheck import *
-from ValidityCheckers.IsDataNotNullValidityCheck import *
-from ValidityCheckers.LoggToFile import *
-from ValidityCheckers.ValidityChecker import *
+from ValidityChecker.PersonnummerValidityCheck import *
+from ValidityChecker.IsDataNotNullValidityCheck import *
+from ValidityChecker.LoggToFile import *
+from ValidityChecker.ValidityChecker import *
 
 class TestValidityChecker(unittest.TestCase):
 
@@ -17,6 +17,7 @@ class TestValidityChecker(unittest.TestCase):
         self.assertTrue(pnumChecker.validateData("19910605-4316"))
         self.assertTrue(pnumChecker.validateData("19780202-2389"))
         self.assertTrue(pnumChecker.validateData("197802022389"))
+        self.assertTrue(pnumChecker.validateData("7802022389"))
         self.assertFalse(pnumChecker.validateData("19780202-2389.."))
         self.assertFalse(pnumChecker.validateData("19780202-23as89"))
         self.assertFalse(pnumChecker.validateData(None))
