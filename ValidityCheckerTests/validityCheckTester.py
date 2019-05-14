@@ -5,7 +5,7 @@ import os
 
 from ValidityChecker.PersonnummerValidityCheck import *
 from ValidityChecker.IsDataNotNullValidityCheck import *
-from ValidityChecker.LoggToFile import *
+from Loggers.LoggToFile import *
 from ValidityChecker.ValidityChecker import *
 
 class TestValidityChecker(unittest.TestCase):
